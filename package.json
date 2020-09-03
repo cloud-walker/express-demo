@@ -1,0 +1,25 @@
+{
+  "scripts": {
+    "start": "node .",
+    "start-prod": "NODE_ENV=production npm start",
+    "build": "babel --delete-dir-on-start --out-dir dist --copy-files --ignore \"**/__tests__/**,**/__mocks__/**\" --no-copy-ignored src"
+  },
+  "main": "./index.js",
+  "private": true,
+  "engines": {
+    "node": "14.9.0"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.11.5",
+    "@babel/core": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/register": "^7.11.5",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "loglevel": "^1.7.0",
+    "rambda": "^5.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
