@@ -24,6 +24,7 @@ describe('StartServer', () => {
     const originaLoggerError = logger.error
     logger.error = jest.fn()
     const res = await supertest(server).get('/ping/error')
+    expect(logger.error).toHaveBeenCalledWith(new Error('forced error'))
     expect(res.status).toBe(500)
     expect(res.body.message).toBe('forced error')
     logger.error = originaLoggerError
