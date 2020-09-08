@@ -2,7 +2,9 @@
   "scripts": {
     "start": "node .",
     "start-prod": "NODE_ENV=production npm start",
-    "build": "babel --delete-dir-on-start --out-dir dist --copy-files --ignore \"**/__tests__/**,**/__mocks__/**\" --no-copy-ignored src"
+    "build": "babel --delete-dir-on-start --out-dir dist --copy-files --ignore \"**/__tests__/**,**/__mocks__/**\" --no-copy-ignored src",
+    "test": "jest --watch",
+    "coverage": "jest --coverage"
   },
   "main": "./index.js",
   "private": true,
