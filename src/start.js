@@ -12,6 +12,7 @@ export const startServer = ({ port = process.env.PORT } = {}) => {
     if (res.headersSent) {
       next(error)
     } else {
+      logger.error(error)
       res.status(500)
       res.json({
         message: error.message,
@@ -22,7 +23,9 @@ export const startServer = ({ port = process.env.PORT } = {}) => {
     }
   }
 
-  app.get('/ping/success', (req, res) => res.json({ message: 'pong' }))
+  app.get('/ping/success', (req, res) => {
+    res.json({ message: 'pong' })
+  })
   app.get('/ping/error', (req, res) => {
     throw new Error('forced error')
   })
