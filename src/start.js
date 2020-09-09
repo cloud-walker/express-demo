@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import { router } from './routes'
+import { getRouter } from './routes'
 import logger from 'loglevel'
 
 export const startServer = ({ port = process.env.PORT } = {}) => {
@@ -32,6 +32,7 @@ export const startServer = ({ port = process.env.PORT } = {}) => {
 
   // router
 
+  let router = getRouter()
   app.use(router.routes()).use(router.allowedMethods())
 
   // port listen
