@@ -1,8 +1,20 @@
-import express from 'express'
-import { getMathRoutes } from './math'
+import Router from 'koa-router'
+import { mathRouter } from './math'
 
-export const getRoutes = () => {
-  const router = express.Router()
-  router.use('/math', getMathRoutes())
+export const getRouter = () => {
+  let router = new Router()
+
+  router.get('/ping/success', (ctx) => {
+    ctx.body = { message: 'pong' }
+  })
+
+  router.get('/ping/error', (ctx) => {
+    ctx.throw(500, JSON.stringify({ message: 'forced error' }), {
+      expose: true,
+    })
+  })
+
+  router.use('/api', mathRouter.routes(), mathRouter.allowedMethods())
+
   return router
 }
