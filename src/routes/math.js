@@ -1,20 +1,21 @@
-import express from 'express'
 import logger from 'loglevel'
+import Router from 'koa-router'
 
-const add = (req, res) => {
-  logger.info(`a ${req.query.a} b ${req.query.b}`)
-  const sum = Number(req.query.a) + Number(req.query.b)
-  res.send(sum.toString())
+const mathRouter = new Router()
+
+const add = (ctx) => {
+  logger.info(`a ${ctx.query.a} b ${ctx.query.b}`)
+  const sum = Number(ctx.query.a) + Number(ctx.query.b)
+  ctx.body = sum
 }
 
-const subtract = (req, res) => {
-  const difference = Number(req.query.a) - Number(req.query.b)
-  res.send(difference.toString())
+const subtract = (ctx) => {
+  const difference = Number(ctx.query.a) - Number(ctx.query.b)
+  ctx.body = difference
 }
 
-export const getMathRoutes = () => {
-  const router = express.Router()
-  router.get('/add', add)
-  router.get('/subtract', subtract)
-  return router
-}
+mathRouter.get('/math/add', add)
+
+mathRouter.get('/math/subtract', subtract)
+
+export default mathRouter
