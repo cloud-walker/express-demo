@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import router from './routes'
+import { router } from './routes'
 import logger from 'loglevel'
 
 export const startServer = ({ port = process.env.PORT } = {}) => {

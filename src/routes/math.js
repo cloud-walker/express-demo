@@ -1,7 +1,7 @@
 import logger from 'loglevel'
 import Router from 'koa-router'
 
-const mathRouter = new Router({
+export const mathRouter = new Router({
   prefix: '/math',
 })
 
@@ -19,5 +19,3 @@ const subtract = (ctx) => {
 mathRouter.get('/add', add)
 
 mathRouter.get('/subtract', subtract)
-
-export default mathRouter
