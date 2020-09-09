@@ -4,7 +4,9 @@
     "start-prod": "NODE_ENV=production npm start",
     "build": "babel --delete-dir-on-start --out-dir dist --copy-files --ignore \"**/__tests__/**,**/__mocks__/**\" --no-copy-ignored src",
     "test": "jest --watch",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "lint": "eslint . --ignore-path .gitignore",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{js,json}\""
   },
   "main": "./index.js",
   "private": true,
@@ -19,6 +21,7 @@
     "@koa/router": "^9.4.0",
     "koa": "^2.13.0",
     "loglevel": "^1.7.0",
+    "prettier": "^2.1.1",
     "rambda": "^5.13.1"
   },
   "devDependencies": {
