@@ -1,7 +1,9 @@
 import logger from 'loglevel'
 import Router from 'koa-router'
 
-const mathRouter = new Router()
+const mathRouter = new Router({
+  prefix: '/math',
+})
 
 const add = (ctx) => {
   logger.info(`a ${ctx.query.a} b ${ctx.query.b}`)
@@ -14,8 +16,8 @@ const subtract = (ctx) => {
   ctx.body = difference
 }
 
-mathRouter.get('/math/add', add)
+mathRouter.get('/add', add)
 
-mathRouter.get('/math/subtract', subtract)
+mathRouter.get('/subtract', subtract)
 
 export default mathRouter
