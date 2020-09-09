@@ -1,5 +1,5 @@
 import logger from 'loglevel'
-import Router from 'koa-router'
+import Router from '@koa/router'
 
 export const mathRouter = new Router({
   prefix: '/math',
