@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import { getRouter } from './routes'
+import { getRouter } from './routers'
 import logger from 'loglevel'
 
 const setupCloseOnExit = (server) => {
