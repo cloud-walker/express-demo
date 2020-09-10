@@ -1,4 +1,5 @@
 import Koa from 'koa'
+import koaBody from 'koa-body'
 import { getRouter } from './routers'
 import logger from 'loglevel'
 
@@ -66,6 +67,8 @@ export const startServer = ({ port = process.env.PORT } = {}) => {
     const ms = Date.now() - start
     ctx.set('X-Response-Time', `${ms}ms`)
   })
+
+  app.use(koaBody())
 
   let router = getRouter()
   app.use(router.routes())

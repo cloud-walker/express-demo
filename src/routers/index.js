@@ -1,5 +1,6 @@
 import Router from '@koa/router'
 import { mathRouter } from './math'
+import { createTodosRouter } from './todos'
 
 export const getRouter = () => {
   let router = new Router()
@@ -14,7 +15,8 @@ export const getRouter = () => {
     })
   })
 
-  router.use('/api', mathRouter.routes(), mathRouter.allowedMethods())
+  router.use('/api', mathRouter.routes())
+  router.use('/api', createTodosRouter().routes())
 
   return router
 }
